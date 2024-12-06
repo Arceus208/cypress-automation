@@ -11,7 +11,7 @@ pipeline {
                         label "remote_node1"
                     }
                     steps {
-                        scripts{
+                        script {
                             checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/Arceus208/cypress-automation.git']]]) 
                             bat "npm install"
                             bat "npm update"
@@ -25,7 +25,7 @@ pipeline {
                         label "remote_node2"
                     }
                     steps {
-                        scripts{
+                        script {
                             checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/Arceus208/cypress-automation.git']]]) 
                             bat "npm install"
                             bat "npm update"
