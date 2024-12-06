@@ -11,10 +11,12 @@ pipeline {
                         label "remote_node1"
                     }
                     steps {
-                        git url: "https://github.com/Arceus208/cypress-automation.git"
-                        bat "npm install"
-                        bat "npm update"
-                        bat "npm run triggerAllTests-autoTestStore-dashboard"
+                        scripts{
+                            checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/Arceus208/cypress-automation.git']]]) 
+                            bat "npm install"
+                            bat "npm update"
+                            bat "npm run triggerAllTests-autoTestStore-dashboard"
+                        }                  
                     }
                 }
 
@@ -23,10 +25,12 @@ pipeline {
                         label "remote_node2"
                     }
                     steps {
-                        git url: "https://github.com/Arceus208/cypress-automation.git"
-                        bat "npm install"
-                        bat "npm update"
-                        bat "npm run triggerAllTests-autoTestStore-dashboard"
+                        scripts{
+                            checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/Arceus208/cypress-automation.git']]]) 
+                            bat "npm install"
+                            bat "npm update"
+                            bat "npm run triggerAllTests-autoTestStore-dashboard"
+                        }   
                     }
                 }
             }
