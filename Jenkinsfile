@@ -15,7 +15,7 @@ pipeline {
                             checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/Arceus208/cypress-automation.git']]]) 
                             bat "npm install"
                             bat "npm update"
-                            bat "npm run triggerAllTests-autoTestStore-dashboard"
+                            bat "set NO_COLOR=1 && npm run triggerAllTests-autoTestStore-dashboard"
                         }                  
                     }
                 }
@@ -29,7 +29,7 @@ pipeline {
                             checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/Arceus208/cypress-automation.git']]]) 
                             bat "npm install"
                             bat "npm update"
-                            bat "npm run triggerAllTests-autoTestStore-dashboard"
+                            bat "set NO_COLOR=1 && npm run triggerAllTests-autoTestStore-dashboard"
                         }   
                     }
                 }
